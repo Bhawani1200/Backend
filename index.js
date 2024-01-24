@@ -7,8 +7,8 @@ import userRouter from './src/routes/user.route.js';
 const app=express();
 // configuration for environment files
 dotenv.config();
-const port = process.env.PORT||3000;
-// const port =4000;
+// const port = process.env.PORT||3000;
+const port =4000;
 app.use(express.json());
 
 // for MONGODB connection
