@@ -1,23 +1,27 @@
 import mongoose from "mongoose";
-const { Schema }  =mongoose;
+// creating tables in databases
 const userSchema=mongoose.Schema(
     {
         name:
         {
             type:String,
-            required:true
+            minlength: [3,'name is too short'],
+            maxlength :[16,'name too long'],
+            required:[true, 'enter your Name'],
+            trim:true
         },
         email:
         {
             type :String,
-            required:true
+            required:[true,'Please enter your email:'],
+            unique :[true,'email already exists'],
+            trim:true
         },
         password:
         {
             type:String,
-            required:true,
-            unique:true
-
+            required:[true,'please enter your password'],
+            trim: true
         }
     }
 )
