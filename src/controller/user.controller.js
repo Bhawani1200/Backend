@@ -1,6 +1,5 @@
-import { User } from "../models/user.products.js";
-import  { products }  from '../models/user.products.js';
-
+import { User } from "../models/User.js";
+import { Product } from "../models/Product.js";
 const getUser=(req,res)=>{
     res.send({Message:"Getting users request"});
 }
@@ -31,20 +30,13 @@ try {
 }
 const createProducts = async (req,res)=>{
     console.log(req.body);
-  const {name,price,featured,rating,createdAt,company}=req.body;
-  const user =new User({
-    name,
-    price,
-    featured,
-    rating,
-    createdAt,
-    company,
-  })
+  const newProduct =new Product(req.body)
   try {
-    const users =await user.save();
-    res.send({data:users})
+    const Product =await newProduct.save();
+    res.status(200).send({Product})
   } catch (error) {
-    console.log(error);
+    res.status(400).send({Product,error})
+   console.log(error)
   }
 }
 

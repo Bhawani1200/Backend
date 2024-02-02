@@ -11,7 +11,7 @@ app.use(express.json());
 
 // for MONGODB connection
 connect();
-app.use("/api/user",userRouter);
+app.use("/api",userRouter);
 app.get("/",(req,res)=>{
     res.status(200).send({Message:"Home Page"});
 })

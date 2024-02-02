@@ -3,7 +3,7 @@ import  {getUser ,createUser,deleteUser, createProducts,  } from "../controller/
 const userRouter=express.Router();
 userRouter.get("/",getUser);
 userRouter.post("/",createUser);
-userRouter.post("/",createProducts);
+userRouter.post("/product",createProducts);
 userRouter.delete("/:id",deleteUser);
 
 export default userRouter;

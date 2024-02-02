@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
- const userSchema= new mongoose.Schema({
+ const productSchema= new mongoose.Schema({
     name :
     {
-        name:String,
-        required:true
+        type:String,
+       
     },
     price:
     {
@@ -13,7 +13,7 @@ import mongoose from 'mongoose';
     featured:
     {
         type:Boolean,
-        default:4.9
+        default:true
     },
     rating:
     {
@@ -28,9 +28,9 @@ import mongoose from 'mongoose';
     company:
     {
         type:String,
-        enum:["Dell","apple","samsung","MI"]
+       
     }
 })
 // creating collection and exporting
-const User=mongoose.model('User',userSchema);
-module.exports=User;
+export const Product=mongoose.model('Product',productSchema);
+// module.exports=Product;
