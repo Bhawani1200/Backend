@@ -1,5 +1,7 @@
 import express  from "express";
-import  {getUser ,createUser,deleteUser, createProducts,  } from "../controller/user.controller.js";
+import  {getUser ,createUser,deleteUser  } from "../controller/user.controller.js";
+import createProducts from "../controller/product.controller.js";
+
 const userRouter=express.Router();
 userRouter.get("/",getUser);
 userRouter.post("/",createUser);

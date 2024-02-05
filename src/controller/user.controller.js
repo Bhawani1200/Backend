@@ -1,5 +1,5 @@
 import { User } from "../models/User.js";
-import { Product } from "../models/Product.js";
+
 const getUser=(req,res)=>{
     res.send({Message:"Getting users request"});
 }
@@ -41,4 +41,4 @@ const createProducts = async (req,res)=>{
 }
 
 
-export {getUser,createUser,deleteUser,createProducts}
+export {getUser,createUser,deleteUser}
