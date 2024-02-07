@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import userRouter from './src/routes/user.route.js';
 import connect from './src/connection/connect.js'
+import productRouter from './src/routes/product.route.js';
 dotenv.config();
 const app=express();
 // configuration for environment files
@@ -12,6 +13,7 @@ app.use(express.json());
 // for MONGODB connection
 connect();
 app.use("/api",userRouter);
+app.use("/product",productRouter);
 app.get("/",(req,res)=>{
     res.status(200).send({Message:"Home Page"});
 })

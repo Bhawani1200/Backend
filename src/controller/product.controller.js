@@ -10,4 +10,29 @@ const createProducts = async (req,res)=>{
    console.log(error)
   }
 }
-export default createProducts;
+const deleteProduct = async (req,res)=>{
+  const id=req.params.id;
+  try {
+    const newProduct =await Product.findByIdAndDelete(id);
+    res.send({data:newProduct})
+  } catch (error) {
+    
+  }
+}
+// const deleteProduct = async (req,res)=>{
+//   try {
+//     const deleteProduct =await Product.findByIdAndDelete(req.params.id)
+//     res.status(200).json(
+//       {
+//         status:"Successfully deleted",
+        
+//       }
+//     )
+//   } catch (error) {
+//     res.status(404).json({
+//       status:"Failed deletion"
+//     })
+//   }
+// }
+
+export { createProducts,deleteProduct};

@@ -29,6 +29,4 @@ try {
 }
 }
 
-
-
 export {getUser,createUser,deleteUser}
