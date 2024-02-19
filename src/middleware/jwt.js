@@ -14,4 +14,15 @@ const generateHashPassword = async (password)=>{
     return await bcrypt.hashSync(password,salt);
 
 }
-export { jwtLogin,generateHashPassword};
+const authGuard =async (req,res,next) =>{
+  const token=req.headers.split(" ");
+  const decoded =await jwt.verify(token,process.env.SECRET);
+  if(decoded.user[0].role=='admin')
+  {
+    next();
+  }else{
+    res.status(400).send({message: "Invalid role"})
+  }
+
+}
+export { jwtLogin,generateHashPassword,authGuard};

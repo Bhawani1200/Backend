@@ -6,12 +6,13 @@ const getUser=(req,res)=>{
 }
 const createUser = async(req,res)=>{
     console.log(req.body);
-    const { name,email,password } =req.body;
+    const { name,email,password,role } =req.body;
     const hashPassword=await generateHashPassword(password);
     const user=new User({
         name,
         email,
-        password:hashPassword
+        password:hashPassword,
+        role
     })
     try {
     

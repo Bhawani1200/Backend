@@ -1,9 +1,9 @@
 import express  from "express";
 import  {getUser ,createUser,deleteUser, loginUser  } from "../controller/user.controller.js";
 // import {createProducts,deleteProduct} from "../controller/product.controller.js";
-
+import { authGuard } from '../middleware/jwt.js'
 const userRouter=express.Router();
-userRouter.get("/",getUser);
+userRouter.get("/",authGuard,getUser);
 userRouter.post("/",createUser);
 userRouter.post("/login",loginUser);
 // userRouter.post("/product",createProducts);

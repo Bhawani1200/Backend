@@ -22,7 +22,10 @@ const userSchema=mongoose.Schema(
             type:String,
             required:[true,'please enter your password'],
             trim: true
-        }
-    }
+        },
+        role:{
+            type:String
+        },
+    },{ timestamps :true}
 )
  export const User=mongoose.model('User',userSchema);
